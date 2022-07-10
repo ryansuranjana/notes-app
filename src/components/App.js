@@ -1,5 +1,6 @@
 import React from 'react';
 import NotesSearch from './NotesSearch';
+import NotesInput from './NotesInput';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class App extends React.Component {
         </header>
         <main>
           <NotesSearch />
+          <NotesInput />
         </main>
       </>
     );

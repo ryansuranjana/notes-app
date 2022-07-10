@@ -46,3 +46,66 @@ header {
   top: 2;
   padding-left: 5px;
 }
+
+.tambah-catatan {
+  position: relative;
+  width: 450px;
+  margin: auto;
+  padding-top: 10px;
+}
+
+.tambah-catatan-header {
+  display: inline-flex;
+  width: 100%;
+}
+
+.tambah-catatan-header img {
+  width: 25px;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.tambah-catatan form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+form input {
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #61dafb;
+  font-size: 16px;
+}
+
+form textarea {
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #61dafb;
+}
+
+form button {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #61dafb;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+input::placeholder {
+  opacity: 0.8;
+  font-size: 14px;
+}
+
+textarea::placeholder {
+  opacity: 0.8;
+  font-size: 14px;
+}

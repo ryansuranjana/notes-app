@@ -3,4 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './styles/style.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<h1>I Love You</h1>);
+root.render(
+  <>
+    <header>
+      <h1>Notes App</h1>
+    </header>
+  </>
+);

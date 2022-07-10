@@ -1,12 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import App from './components/App';
 import './styles/style.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <>
-    <header>
-      <h1>Notes App</h1>
-    </header>
-  </>
-);
+const root = createRoot(document.getElementById('root'));
+root.render(<App />);

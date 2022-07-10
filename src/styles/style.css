@@ -9,8 +9,40 @@
 
 header {
   width: 100%;
-  padding: 20px 0 20px 0;
+  padding: 19px 0 19px 0;
   background-color: #16181d;
   color: #61dafb;
   text-align: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 18px 0 18px 0;
+  background-color: #20232a;
+  text-align: center;
+}
+
+.search-input input {
+  width: 320px;
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #61dafb;
+  background-color: #16181d;
+  color: white;
+}
+
+.search-input .button-tambah {
+  display: inline;
+  margin-left: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.button-tambah img {
+  display: inline-block;
+  width: 30px;
+  position: absolute;
+  top: 2;
+  padding-left: 5px;
 }

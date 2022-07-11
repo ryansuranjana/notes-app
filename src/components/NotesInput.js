@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default () => {
+export default ({ hiddenForm }) => {
   return (
-    <section className="tambah-catatan">
-      <div class="tambah-catatan-header">
+    <section className="tambah-catatan animation-hidden-form">
+      <div className="tambah-catatan-header">
         <h2>Buat Catatan</h2>
-        <img src="/images/close.png" alt="Tombol close" />
+        <img src="/images/close.png" alt="Tombol close form" onClick={hiddenForm} />
       </div>
       <form>
         <input type="text" placeholder="Ini adalah judul.." autoComplete="off" />

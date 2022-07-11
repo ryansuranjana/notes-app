@@ -8,6 +8,7 @@
 }
 
 header {
+  position: relative;
   width: 100%;
   padding: 19px 0 19px 0;
   background-color: #16181d;
@@ -16,6 +17,7 @@ header {
 }
 
 .search-input {
+  position: relative;
   width: 100%;
   padding: 18px 0 18px 0;
   background-color: #20232a;
@@ -48,10 +50,14 @@ header {
 }
 
 .tambah-catatan {
-  position: relative;
+  position: absolute;
   width: 450px;
-  margin: auto;
   padding-top: 10px;
+  z-index: -1;
+  transition: all ease-out 0.2s;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
 }
 
 .tambah-catatan-header {
@@ -60,6 +66,7 @@ header {
 }
 
 .tambah-catatan-header img {
+  position: relative;
   width: 25px;
   margin-left: auto;
   cursor: pointer;
@@ -69,6 +76,18 @@ header {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
+}
+
+.animation-show-form {
+  animation-name: show-form;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.animation-hidden-form {
+  animation-name: hidden-form;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
 }
 
 form input {
@@ -108,4 +127,22 @@ input::placeholder {
 textarea::placeholder {
   opacity: 0.8;
   font-size: 14px;
+}
+
+@keyframes show-form {
+  from {
+    margin-top: -355px;
+  }
+  to {
+    margin-top: 5px;
+  }
+}
+
+@keyframes hidden-form {
+  form {
+    margin-top: 0;
+  }
+  to {
+    margin-top: -355px;
+  }
 }

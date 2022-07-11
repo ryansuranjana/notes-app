@@ -2,8 +2,8 @@ import React from 'react';
 
 export default ({ hiddenForm }) => {
   return (
-    <section className="tambah-catatan animation-hidden-form">
-      <div className="tambah-catatan-header">
+    <section className="add-notes animation-hidden-form">
+      <div className="add-notes-header">
         <h2>Buat Catatan</h2>
         <img src="/images/close.png" alt="Tombol close form" onClick={hiddenForm} />
       </div>

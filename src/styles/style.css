@@ -91,6 +91,12 @@
   animation-fill-mode: forwards;
 }
 
+form p {
+  text-align: end;
+  margin-bottom: 10px;
+  font-size: 0.8em;
+}
+
 form input {
   padding: 8px;
   margin-bottom: 5px;
@@ -144,6 +150,7 @@ textarea::placeholder {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 section h2 {
@@ -221,7 +228,7 @@ article .date-notes {
     margin-top: 0;
   }
   to {
-    margin-top: -367px;
+    margin-top: -380px;
   }
 }
 

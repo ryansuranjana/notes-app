@@ -2,6 +2,7 @@ import React from 'react';
 import NotesSearch from './NotesSearch';
 import NotesInput from './NotesInput';
 import NotesListAktif from './NotesListAktif';
+import NotesListArsip from './NotesListArsip';
 
 class App extends React.Component {
   constructor(props) {
@@ -45,6 +46,8 @@ class App extends React.Component {
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>
             <NotesListAktif />
+            <h2>Arsip</h2>
+            <NotesListArsip />
           </section>
         </main>
       </>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {showFormattedDate} from '../utils/index';
 
-export default ({note}) => {
+export default ({note, onDelete}) => {
   return (
     <div className="card" key={note.id}>
       <article>
@@ -12,7 +12,7 @@ export default ({note}) => {
         <p className="description-notes">{note.body}</p>
       </article>
       <div className="action-notes">
-        <div className="btn-delete">Delete</div>
+        <div className="btn-delete" onClick={() => onDelete(note.id)}>Delete</div>
         <div className="btn-move-notes">Pindahkan</div>
       </div>
     </div>

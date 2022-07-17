@@ -17,6 +17,7 @@ class App extends React.Component {
     this.hiddenFormEventHandler = this.hiddenFormEventHandler.bind(this);
     this.getNotesListAktif = this.getNotesListAktif.bind(this);
     this.getNotesListArsip = this.getNotesListArsip.bind(this);
+    this.onDeleteNotesEventHandler = this.onDeleteNotesEventHandler.bind(this);
   }
 
   showFormEventHandler(event) {
@@ -41,6 +42,11 @@ class App extends React.Component {
     }
   }
 
+  onDeleteNotesEventHandler(id) {
+    const notes = this.state.notes.filter((note) => note.id !== id);
+    this.setState({ notes });
+  }
+
   getNotesListAktif() {
     return this.state.notes.filter((note) => note.archived === false);
   }
@@ -60,9 +66,9 @@ class App extends React.Component {
           <NotesInput hiddenForm={this.hiddenFormEventHandler} />
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>
-            <NotesListAktif notes={this.getNotesListAktif}/>
+            <NotesListAktif notes={this.getNotesListAktif} onDelete={this.onDeleteNotesEventHandler}/>
             <h2>Arsip</h2>
-            <NotesListArsip notes={this.getNotesListArsip}/>
+            <NotesListArsip notes={this.getNotesListArsip} onDelete={this.onDeleteNotesEventHandler}/>
           </section>
         </main>
       </>

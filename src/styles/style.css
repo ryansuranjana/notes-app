@@ -215,6 +215,10 @@ article .date-notes {
   padding: 10px;
 }
 
+.not-found__notes {
+  text-align: center;
+}
+
 @keyframes show-form {
   from {
     margin-top: -355px;

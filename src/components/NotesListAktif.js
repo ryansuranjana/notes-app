@@ -1,13 +1,19 @@
 import React from 'react';
 import NotesAktif from './NotesAktif';
 
-export default ({notes}) => {
+export default ({notes, onDelete}) => {
   const notesAktif = notes();
-  return (
-    <div className="notes-list">
-      {notesAktif.map(note => (
-        <NotesAktif note={note}/>
-      ))}
-    </div>
-  );
+  if(notesAktif.length == 0) {
+    return (
+      <p className='not-found__notes'>Tidak ada catatan</p>
+    )
+  } else {
+    return (
+      <div className="notes-list">
+        {notesAktif.map(note => (
+          <NotesAktif note={note} onDelete={onDelete}/>
+        ))}
+      </div>
+    );
+  }
 };

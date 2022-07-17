@@ -1,7 +1,7 @@
 import React from 'react';
 import NotesAktif from './NotesAktif';
 
-export default ({notes, onDelete}) => {
+export default ({notes, onDelete, onArsip}) => {
   const notesAktif = notes();
   if(notesAktif.length == 0) {
     return (
@@ -11,7 +11,7 @@ export default ({notes, onDelete}) => {
     return (
       <div className="notes-list">
         {notesAktif.map(note => (
-          <NotesAktif note={note} onDelete={onDelete}/>
+          <NotesAktif note={note} onDelete={onDelete} onArsip={onArsip}/>
         ))}
       </div>
     );

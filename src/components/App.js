@@ -18,6 +18,8 @@ class App extends React.Component {
     this.getNotesListAktif = this.getNotesListAktif.bind(this);
     this.getNotesListArsip = this.getNotesListArsip.bind(this);
     this.onDeleteNotesEventHandler = this.onDeleteNotesEventHandler.bind(this);
+    this.onAktifNotesEventHandler = this.onAktifNotesEventHandler.bind(this);
+    this.onArsipNotesEventHandler = this.onArsipNotesEventHandler.bind(this);
   }
 
   showFormEventHandler(event) {
@@ -47,6 +49,30 @@ class App extends React.Component {
     this.setState({ notes });
   }
 
+  onArsipNotesEventHandler(id) {
+    const note = this.state.notes.find((note) => note.id == id);
+    note.archived = true;
+    this.setState((prevState) => {
+      return {
+        notes: [
+          ...prevState.notes,
+        ]
+      }
+    })
+  }
+
+  onAktifNotesEventHandler(id) {
+    const note = this.state.notes.find((note) => note.id == id);
+    note.archived = false;
+    this.setState((prevState) => {
+      return {
+        notes: [
+          ...prevState.notes,
+        ]
+      }
+    })
+  }
+
   getNotesListAktif() {
     return this.state.notes.filter((note) => note.archived === false);
   }
@@ -66,9 +92,9 @@ class App extends React.Component {
           <NotesInput hiddenForm={this.hiddenFormEventHandler} />
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>
-            <NotesListAktif notes={this.getNotesListAktif} onDelete={this.onDeleteNotesEventHandler}/>
+            <NotesListAktif notes={this.getNotesListAktif} onDelete={this.onDeleteNotesEventHandler} onArsip={this.onArsipNotesEventHandler}/>
             <h2>Arsip</h2>
-            <NotesListArsip notes={this.getNotesListArsip} onDelete={this.onDeleteNotesEventHandler}/>
+            <NotesListArsip notes={this.getNotesListArsip} onDelete={this.onDeleteNotesEventHandler} onAktif={this.onAktifNotesEventHandler}/>
           </section>
         </main>
       </>

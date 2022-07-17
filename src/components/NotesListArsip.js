@@ -1,7 +1,7 @@
 import React from 'react';
 import NotesArsip from './NotesArsip';
 
-export default ({notes, onDelete}) => {
+export default ({notes, onDelete, onAktif}) => {
   const notesArsip = notes();
   if(notesArsip.length == 0) {
     return (
@@ -11,7 +11,7 @@ export default ({notes, onDelete}) => {
     return (
       <div className="notes-list">
         {notesArsip.map((note) => (
-          <NotesArsip note={note} onDelete={onDelete}/>
+          <NotesArsip note={note} onDelete={onDelete} onAktif={onAktif}/>
         ))}
       </div>
     );

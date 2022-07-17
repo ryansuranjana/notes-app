@@ -1,12 +1,13 @@
 import React from 'react';
 import NotesArsip from './NotesArsip';
 
-export default () => {
+export default ({notes}) => {
+  const notesArsip = notes();
   return (
     <div className="notes-list">
-      <NotesArsip />
-      <NotesArsip />
-      <NotesArsip />
+      {notesArsip.map((note) => (
+        <NotesArsip note={note}/>
+      ))}
     </div>
   );
 };

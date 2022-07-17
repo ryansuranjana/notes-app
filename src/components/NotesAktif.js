@@ -1,14 +1,15 @@
 import React from 'react';
+import {showFormattedDate} from '../utils/index'; 
 
-export default () => {
+export default ({note}) => {
   return (
     <div className="card">
       <article>
         <header>
-          <h3>React Js</h3>
-          <p className="date-notes">Minggu, 10 Juli 2022</p>
+          <h3>{note.title}</h3>
+          <p className="date-notes">{showFormattedDate(note.createdAt)}</p>
         </header>
-        <p className="description-notes">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi praesentium consectetur nostrum inventore doloribus? Similique dolorem laborum corporis minus quis?</p>
+        <p className="description-notes">{note.body}</p>
       </article>
       <div className="action-notes">
         <div className="btn-delete">Delete</div>

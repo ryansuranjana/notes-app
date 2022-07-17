@@ -3,13 +3,20 @@ import NotesSearch from './NotesSearch';
 import NotesInput from './NotesInput';
 import NotesListAktif from './NotesListAktif';
 import NotesListArsip from './NotesListArsip';
+import { getInitialData } from '../utils/index';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      notes: getInitialData(),
+    }
+
     this.showFormEventHandler = this.showFormEventHandler.bind(this);
     this.hiddenFormEventHandler = this.hiddenFormEventHandler.bind(this);
+    this.getNotesListAktif = this.getNotesListAktif.bind(this);
+    this.getNotesListArsip = this.getNotesListArsip.bind(this);
   }
 
   showFormEventHandler(event) {
@@ -34,6 +41,14 @@ class App extends React.Component {
     }
   }
 
+  getNotesListAktif() {
+    return this.state.notes.filter((note) => note.archived === false);
+  }
+
+  getNotesListArsip() {
+    return this.state.notes.filter((note) => note.archived === true);
+  }
+
   render() {
     return (
       <>
@@ -45,9 +60,9 @@ class App extends React.Component {
           <NotesInput hiddenForm={this.hiddenFormEventHandler} />
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>
-            <NotesListAktif />
+            <NotesListAktif notes={this.getNotesListAktif}/>
             <h2>Arsip</h2>
-            <NotesListArsip />
+            <NotesListArsip notes={this.getNotesListArsip}/>
           </section>
         </main>
       </>

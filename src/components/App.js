@@ -11,7 +11,8 @@ class App extends React.Component {
 
     this.state = {
       notes: getInitialData(),
-      titleValidate: '',
+      titleNewNote: '',
+      body: '',
     }
 
     this.showFormEventHandler = this.showFormEventHandler.bind(this);
@@ -22,6 +23,9 @@ class App extends React.Component {
     this.onAktifNotesEventHandler = this.onAktifNotesEventHandler.bind(this);
     this.onArsipNotesEventHandler = this.onArsipNotesEventHandler.bind(this);
     this.validateTitleEventHandler = this.validateTitleEventHandler.bind(this);
+    this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
+    this.handleBodyInputChange = this.handleBodyInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   showFormEventHandler(event) {
@@ -92,8 +96,44 @@ class App extends React.Component {
     else {
       inputTitleElement.setAttribute('onkeypress', 'return true;');
     }
+
+    this.handleTitleInputChange(event);
   }
   // akhir validasi title input form
+
+  // add notes
+
+  handleTitleInputChange(event) {
+    this.setState({
+      titleNewNote: event.target.value
+    });
+  }
+
+  handleBodyInputChange(event) {
+    this.setState({
+      body: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    const newNote = {
+      id: this.state.notes.length + 1,
+      title: this.state.titleNewNote,
+      body: this.state.body,
+      archived: false,
+    }
+    this.setState((prevState) => {
+      return {
+        notes: [
+          ...prevState.notes,
+          newNote,
+        ]
+      }
+    })
+  }
+
+  // akhir add notes
 
   // akhir task
 
@@ -117,7 +157,7 @@ class App extends React.Component {
         </header>
         <main>
           <NotesSearch showForm={this.showFormEventHandler}/>
-          <NotesInput hiddenForm={this.hiddenFormEventHandler} validateTitleEventHandler={this.validateTitleEventHandler}/>
+          <NotesInput hiddenForm={this.hiddenFormEventHandler} validateTitleEventHandler={this.validateTitleEventHandler} handleTitleInputChange={this.handleTitleInputChange} handleBodyInputChange={this.handleBodyInputChange} handleSubmit={this.handleSubmit}/>
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>
             <NotesListAktif notes={this.getNotesListAktif} onDelete={this.onDeleteNotesEventHandler} onArsip={this.onArsipNotesEventHandler}/>

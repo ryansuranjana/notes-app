@@ -11,6 +11,7 @@ class App extends React.Component {
 
     this.state = {
       notes: getInitialData(),
+      titleValidate: '',
     }
 
     this.showFormEventHandler = this.showFormEventHandler.bind(this);
@@ -20,6 +21,7 @@ class App extends React.Component {
     this.onDeleteNotesEventHandler = this.onDeleteNotesEventHandler.bind(this);
     this.onAktifNotesEventHandler = this.onAktifNotesEventHandler.bind(this);
     this.onArsipNotesEventHandler = this.onArsipNotesEventHandler.bind(this);
+    this.validateTitleEventHandler = this.validateTitleEventHandler.bind(this);
   }
 
   showFormEventHandler(event) {
@@ -73,6 +75,32 @@ class App extends React.Component {
     })
   }
 
+
+
+
+  // task
+
+  // validasi title input form
+  validateTitleEventHandler(event) {
+    const countCharacter = event.target.value.length;
+    const inputTitleElement = document.querySelector('form input');
+    const countCharacterSpan = document.querySelector('form p span');
+    countCharacterSpan.innerHTML = 50 - countCharacter;
+    if (countCharacter >= 50) {
+      inputTitleElement.setAttribute('onkeypress', 'return false;');
+    }
+    else {
+      inputTitleElement.setAttribute('onkeypress', 'return true;');
+    }
+  }
+  // akhir validasi title input form
+
+  // akhir task
+
+
+
+
+
   getNotesListAktif() {
     return this.state.notes.filter((note) => note.archived === false);
   }
@@ -88,8 +116,8 @@ class App extends React.Component {
           <h1>Notes App</h1>
         </header>
         <main>
-          <NotesSearch showForm={this.showFormEventHandler} />
-          <NotesInput hiddenForm={this.hiddenFormEventHandler} />
+          <NotesSearch showForm={this.showFormEventHandler}/>
+          <NotesInput hiddenForm={this.hiddenFormEventHandler} validateTitleEventHandler={this.validateTitleEventHandler}/>
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>
             <NotesListAktif notes={this.getNotesListAktif} onDelete={this.onDeleteNotesEventHandler} onArsip={this.onArsipNotesEventHandler}/>

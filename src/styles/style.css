@@ -136,6 +136,18 @@ textarea::placeholder {
   font-size: 14px;
 }
 
+.popup-success {
+  display: flex;
+  padding: 8px 5px 8px 5px; 
+  background-color: #0adb1f;
+  color: white;
+  border-radius: 5px;
+}
+
+.d-none {
+  display: none;
+}
+
 .notes {
   position: absolute;
   left: 0;
@@ -233,7 +245,7 @@ article .date-notes {
     margin-top: 0;
   }
   to {
-    margin-top: -380px;
+    margin-top: -420px;
   }
 }
 

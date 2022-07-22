@@ -131,6 +131,12 @@ class App extends React.Component {
         ]
       }
     })
+    event.target.reset();
+    const popupSuccess = document.querySelector('.popup-success');
+    popupSuccess.classList.remove('d-none');
+    setTimeout(() => {
+      popupSuccess.classList.add('d-none');
+    }, 2000)
   }
 
   // akhir add notes

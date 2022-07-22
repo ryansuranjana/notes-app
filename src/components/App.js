@@ -13,6 +13,7 @@ class App extends React.Component {
       notes: getInitialData(),
       titleNewNote: '',
       body: '',
+      notesSearch: [],
     }
 
     this.showFormEventHandler = this.showFormEventHandler.bind(this);
@@ -26,6 +27,7 @@ class App extends React.Component {
     this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
     this.handleBodyInputChange = this.handleBodyInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSearchNotes = this.handleSearchNotes.bind(this);
   }
 
   showFormEventHandler(event) {
@@ -79,12 +81,6 @@ class App extends React.Component {
     })
   }
 
-
-
-
-  // task
-
-  // validasi title input form
   validateTitleEventHandler(event) {
     const countCharacter = event.target.value.length;
     const inputTitleElement = document.querySelector('form input');
@@ -99,9 +95,6 @@ class App extends React.Component {
 
     this.handleTitleInputChange(event);
   }
-  // akhir validasi title input form
-
-  // add notes
 
   handleTitleInputChange(event) {
     this.setState({
@@ -139,20 +132,20 @@ class App extends React.Component {
     }, 2000)
   }
 
-  // akhir add notes
-
-  // akhir task
-
-
-
-
+  handleSearchNotes(event) {
+    const search = event.target.value.toLowerCase();
+    const notesSearch = this.state.notes.filter((note) => note.title.toLowerCase().includes(search));
+    this.setState({ notesSearch });
+  }
 
   getNotesListAktif() {
-    return this.state.notes.filter((note) => note.archived === false);
+    const notes = this.state.notesSearch.length == 0 ? this.state.notes : this.state.notesSearch;
+    return notes.filter((note) => note.archived === false);
   }
 
   getNotesListArsip() {
-    return this.state.notes.filter((note) => note.archived === true);
+    const notes = this.state.notesSearch.length == 0 ? this.state.notes : this.state.notesSearch;
+    return notes.filter((note) => note.archived === true);
   }
 
   render() {
@@ -162,7 +155,7 @@ class App extends React.Component {
           <h1>Notes App</h1>
         </header>
         <main>
-          <NotesSearch showForm={this.showFormEventHandler}/>
+          <NotesSearch showForm={this.showFormEventHandler} handleSearchNotes={this.handleSearchNotes}/>
           <NotesInput hiddenForm={this.hiddenFormEventHandler} validateTitleEventHandler={this.validateTitleEventHandler} handleTitleInputChange={this.handleTitleInputChange} handleBodyInputChange={this.handleBodyInputChange} handleSubmit={this.handleSubmit}/>
           <section className="notes animation-up-notes">
             <h2>Catatan Aktif</h2>

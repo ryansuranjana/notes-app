@@ -266,3 +266,9 @@ article .date-notes {
     margin-top: 400px;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .add-notes {
+    width: 350px;
+  }
+}

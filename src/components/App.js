@@ -115,6 +115,7 @@ class App extends React.Component {
       title: this.state.titleNewNote,
       body: this.state.body,
       archived: false,
+      createdAt: new Date(),
     }
     this.setState((prevState) => {
       return {

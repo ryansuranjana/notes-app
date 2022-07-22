@@ -268,7 +268,20 @@ article .date-notes {
 }
 
 @media screen and (max-width: 700px) {
+  .search-input input {
+    width: 290px;
+  }
   .add-notes {
     width: 350px;
+  }
+  .notes {
+    width: 100%;
+  }
+  .notes h2 {
+    margin-left: 55px;
+  }
+  .notes-list {
+    flex-direction: column;
+    align-content: center;
   }
 }

@@ -14,6 +14,7 @@ class App extends React.Component {
       titleNewNote: '',
       body: '',
       notesSearch: [],
+      searchKeyword: '',
     }
 
     this.showFormEventHandler = this.showFormEventHandler.bind(this);
@@ -134,18 +135,18 @@ class App extends React.Component {
   }
 
   handleSearchNotes(event) {
-    const search = event.target.value.toLowerCase();
-    const notesSearch = this.state.notes.filter((note) => note.title.toLowerCase().includes(search));
-    this.setState({ notesSearch });
+    const searchKeyword = event.target.value.toLowerCase();
+    const notesSearch = this.state.notes.filter((note) => note.title.toLowerCase().includes(searchKeyword));
+    this.setState({ notesSearch, searchKeyword });
   }
 
   getNotesListAktif() {
-    const notes = this.state.notesSearch.length == 0 ? this.state.notes : this.state.notesSearch;
+    const notes = this.state.searchKeyword.length == 0 ? this.state.notes : this.state.notesSearch;
     return notes.filter((note) => note.archived === false);
   }
 
   getNotesListArsip() {
-    const notes = this.state.notesSearch.length == 0 ? this.state.notes : this.state.notesSearch;
+    const notes = this.state.searchKeyword.length == 0 ? this.state.notes : this.state.notesSearch;
     return notes.filter((note) => note.archived === true);
   }
 

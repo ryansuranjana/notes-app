@@ -111,7 +111,7 @@ class App extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const newNote = {
-      id: this.state.notes.length + 1,
+      id: +new Date(),
       title: this.state.titleNewNote,
       body: this.state.body,
       archived: false,

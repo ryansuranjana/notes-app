@@ -4,6 +4,7 @@ import NotesInput from './NotesInput';
 import NotesListAktif from './NotesListAktif';
 import NotesListArsip from './NotesListArsip';
 import { getInitialData } from '../utils/index';
+import autoBind from 'auto-bind';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,18 +18,7 @@ class App extends React.Component {
       searchKeyword: '',
     }
 
-    this.showFormEventHandler = this.showFormEventHandler.bind(this);
-    this.hiddenFormEventHandler = this.hiddenFormEventHandler.bind(this);
-    this.getNotesListAktif = this.getNotesListAktif.bind(this);
-    this.getNotesListArsip = this.getNotesListArsip.bind(this);
-    this.onDeleteNotesEventHandler = this.onDeleteNotesEventHandler.bind(this);
-    this.onAktifNotesEventHandler = this.onAktifNotesEventHandler.bind(this);
-    this.onArsipNotesEventHandler = this.onArsipNotesEventHandler.bind(this);
-    this.validateTitleEventHandler = this.validateTitleEventHandler.bind(this);
-    this.handleTitleInputChange = this.handleTitleInputChange.bind(this);
-    this.handleBodyInputChange = this.handleBodyInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSearchNotes = this.handleSearchNotes.bind(this);
+    autoBind(this);
   }
 
   showFormEventHandler(event) {
